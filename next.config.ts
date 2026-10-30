@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   turbopack: {
     rules: {
-      "*.css": {
+      // Only compile the Tailwind entry point. Applying `as: "*.css"` to
+      // .module.css files turns them into global CSS and drops class exports.
+      "globals.css": {
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
