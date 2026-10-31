@@ -12,7 +12,7 @@ export function About() {
       aria-labelledby="about-heading"
     >
       <div className="flex items-center justify-between gap-5 font-mono text-[9px] tracking-widest text-muted-foreground">
-        <span>01 / A LITTLE ABOUT ME</span>
+        <span>ABOUT ME</span>
         <ArrowUpRight className="size-4 text-primary" aria-hidden="true" />
       </div>
       <div className="mt-10 grid gap-8 pb-12 lg:grid-cols-2 lg:gap-16">

@@ -158,24 +158,6 @@ export function PortfolioSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="gap-5 px-6 py-7">
-        <Badge
-          variant="outline"
-          className="gap-2 text-[9px] font-normal tracking-normal normal-case"
-        >
-          <span
-            className="size-1.5 rounded-full bg-[#b8c59b]"
-            aria-hidden="true"
-          />
-          {portfolio.availability}
-        </Badge>
-        <p className="text-[11px] leading-relaxed text-muted-foreground">
-          Made with care,
-          <br />
-          and a little curiosity.
-        </p>
-        <p className="font-mono text-[9px] text-muted-foreground">
-          {portfolio.location}
-        </p>
       </SidebarFooter>
     </Sidebar>
   );

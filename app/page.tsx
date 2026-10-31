@@ -29,12 +29,6 @@ export default function Home() {
                 THE PERSONAL INDEX
               </span>
             </div>
-            <Badge
-              variant="secondary"
-              className="text-[8px] font-normal tracking-normal normal-case sm:text-[10px]"
-            >
-              {portfolio.location}
-            </Badge>
           </header>
           <Hero />
           <About />

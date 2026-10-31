@@ -53,13 +53,6 @@ export function Hero() {
           />
         </figure>
       </div>
-      <div className={styles.heroFooter}>
-        <span>BASED IN {portfolio.location.toUpperCase()}</span>
-        <span>
-          SCROLL TO GET TO KNOW ME{" "}
-          <ArrowDownRight size={13} aria-hidden="true" />
-        </span>
-      </div>
       <Separator />
     </section>
   );
