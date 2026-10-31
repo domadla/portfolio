@@ -16,13 +16,13 @@ export type Project = {
 export const portfolio = {
   initials: "Dominic",
   name: ["Edgar Dominic", "Madlangbayan"],
-  role: "Designer & developer",
+  role: "BS Information Technology with specialization in Web and Mobile Development",
   location: "Makati, Philippines",
   availability: "Open to opportunities",
   introduction: "A curious mind. A thoughtful maker.",
   description:
     "Designer and developer exploring the space between thoughtful design and meaningful digital experiences.",
-  heroNote: "A little design. A little code. A lot of curiosity.",
+  heroNote: "",
   about: [
     "Hey, I’m Alex — a designer and developer drawn to the space where thoughtful design meets everyday life.",
     "I’m currently a university student, learning by making and turning small observations into useful digital experiences. I care about the details, the people behind the screen, and making things feel a little more human.",
@@ -34,9 +34,9 @@ export const portfolio = {
     "Everyday observations",
   ],
   images: {
-    architecture: {
-      src: "/images/architecture.svg",
-      alt: "Placeholder illustration of a sculptural concrete building",
+    portrait: {
+      src: "/images/SHSPic.JPG",
+      alt: "Portrait of Edgar Dominic Madlangbayan",
     },
     landscape: {
       src: "/images/landscape.svg",

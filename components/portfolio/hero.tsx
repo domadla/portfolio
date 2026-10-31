@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { ArrowDownRight, ArrowUpRight, Asterisk } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { portfolio } from "@/content/portfolio";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import styles from "./hero.module.css";
@@ -9,12 +8,6 @@ import styles from "./hero.module.css";
 export function Hero() {
   return (
     <section id="home" className={styles.hero} aria-labelledby="hero-heading">
-      <header className={styles.topline}>
-        <span>INDEPENDENT MIND. INTENTIONAL WORK.</span>
-        <Badge variant="secondary" className="font-mono text-[8px] font-normal">
-          PORTFOLIO — {portfolio.copyrightYear}
-        </Badge>
-      </header>
       <div className={styles.composition}>
         <div className={styles.introduction}>
           <p className={styles.eyebrow}>
@@ -50,59 +43,15 @@ export function Hero() {
             </Button>
           </div>
         </div>
-        <div
-          className={styles.collage}
-          role="group"
-          aria-label="A few things that inspire me"
-        >
-          <figure className={styles.landscape}>
-            <div className={styles.imageWrap}>
-              <Image
-                src={portfolio.images.landscape.src}
-                alt={portfolio.images.landscape.alt}
-                fill
-                sizes="(max-width: 700px) 42vw, 18vw"
-              />
-            </div>
-            <figcaption>01 / THE IN-BETWEEN</figcaption>
-          </figure>
-          <figure className={styles.architecture}>
-            <div className={styles.imageWrap}>
-              <Image
-                src={portfolio.images.architecture.src}
-                alt={portfolio.images.architecture.alt}
-                fill
-                preload
-                sizes="(max-width: 700px) 50vw, 23vw"
-              />
-              <span className={styles.imageLabel}>
-                A different perspective.
-              </span>
-            </div>
-          </figure>
-          <figure className={styles.workspace}>
-            <div className={styles.imageWrap}>
-              <Image
-                src={portfolio.images.workspace.src}
-                alt={portfolio.images.workspace.alt}
-                fill
-                sizes="(max-width: 700px) 40vw, 17vw"
-              />
-            </div>
-            <figcaption>02 / A WORK IN PROGRESS</figcaption>
-          </figure>
-          <Asterisk
-            className={styles.flower}
-            size={58}
-            strokeWidth={1}
-            aria-hidden="true"
+        <figure className={styles.portrait}>
+          <Image
+            src={portfolio.images.portrait.src}
+            alt={portfolio.images.portrait.alt}
+            fill
+            preload
+            sizes="(max-width: 700px) 85vw, (max-width: 1200px) 40vw, 460px"
           />
-          <span className={styles.collageNote}>
-            A few fragments
-            <br />
-            of my world.
-          </span>
-        </div>
+        </figure>
       </div>
       <div className={styles.heroFooter}>
         <span>BASED IN {portfolio.location.toUpperCase()}</span>

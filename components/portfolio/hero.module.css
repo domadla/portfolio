@@ -69,82 +69,22 @@
   max-width: 230px;
   margin-block: 15px 30px;
 }
-.collage {
+.portrait {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.02;
-}
-.collage figure {
-  position: absolute;
+  max-width: 460px;
+  aspect-ratio: 3 / 4;
+  justify-self: center;
   margin: 0;
-}
-.imageWrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   background: var(--card);
   border: 1px solid #ffffff08;
 }
-.imageWrap img {
+.portrait img {
   object-fit: cover;
-  transition: transform 0.7s ease;
-}
-.imageWrap:hover img {
-  transform: scale(1.04);
-}
-.architecture {
-  width: 57%;
-  height: 78%;
-  right: 1%;
-  top: 0;
-  transform: rotate(4deg);
-  z-index: 1;
-}
-.landscape {
-  width: 48%;
-  height: 45%;
-  left: -4%;
-  top: 20%;
-  transform: rotate(-7deg);
-  z-index: 2;
-}
-.workspace {
-  width: 48%;
-  height: 39%;
-  right: -3%;
-  bottom: -5%;
-  transform: rotate(-5deg);
-  z-index: 3;
-}
-.collage figcaption {
-  font: 7px monospace;
-  letter-spacing: 1px;
-  color: #b1b1a5;
-  margin-top: 11px;
-}
-.imageLabel {
-  position: absolute;
-  bottom: 18px;
-  left: 15px;
-  right: 10px;
-  font: italic 15px var(--font-editorial);
-  color: #f1ecdf;
-}
-.flower {
-  color: var(--primary);
-  position: absolute;
-  top: -16px;
-  left: 18%;
-  transform: rotate(12deg);
-}
-.collageNote {
-  position: absolute;
-  left: 3%;
-  bottom: 3%;
-  font: italic 18px/1.4 var(--font-editorial);
-  color: #b4b3a6;
-  transform: rotate(-8deg);
+  object-position: center top;
+  transform: scale(1.3);
+  transform-origin: center 12%;
 }
 .heroFooter {
   display: flex;
@@ -177,12 +117,6 @@
     font-size: 7px;
     letter-spacing: 0.8px;
   }
-  .collageNote {
-    font-size: 14px;
-  }
-  .imageLabel {
-    font-size: 12px;
-  }
 }
 @media (max-width: 700px) {
   .hero {
@@ -209,10 +143,9 @@
   .note {
     max-width: none;
   }
-  .collage {
-    max-width: 470px;
+  .portrait {
+    max-width: 420px;
     width: 92%;
-    justify-self: center;
   }
   .heroFooter {
     gap: 20px;
