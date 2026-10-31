@@ -1,40 +1,53 @@
-import { ArrowUp, ArrowUpRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+"use client";
+
+import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { portfolio } from "@/content/portfolio";
 
 export function Contact() {
   return (
-    <footer id="contact" className="pb-4">
-      <Card className="gap-7 bg-transparent py-0 shadow-none ring-0">
-        <CardHeader className="px-0">
-          <div className="flex items-center justify-between gap-5 font-mono text-[9px] tracking-widest text-muted-foreground">
-            <span>03 / WHAT’S NEXT?</span>
-            <span className="hidden sm:inline">
-              GOOD THINGS START WITH A HELLO.
-            </span>
-          </div>
-        </CardHeader>
-        <CardContent className="flex flex-col items-start justify-between gap-8 px-0 py-5 xl:flex-row xl:items-center">
-          <div>
-            <h2 className="text-4xl leading-tight font-normal tracking-tighter md:text-5xl">
-              Let’s make
-              <br />
-              <em className="font-serif font-normal text-primary">
-                something matter.
-              </em>
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Have an idea, an opportunity, or a good story?
-            </p>
-          </div>
+    <footer id="contact" className="relative px-6 py-20 md:px-10 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        {/* Section label */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-4 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
+        >
+          Contact
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-light tracking-tight md:text-5xl lg:text-6xl"
+        >
+          Let&rsquo;s talk<span className="text-primary">.</span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground"
+        >
+          Have an idea, an opportunity, or a good story?
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.4, delay: 0.25 }}
+          className="mt-10"
+        >
           {portfolio.email ? (
             <Button
               render={<a href={`mailto:${portfolio.email}`} />}
@@ -42,42 +55,62 @@ export function Contact() {
               size="lg"
             >
               Say hello
-              <ArrowUpRight data-icon="inline-end" aria-hidden="true" />
+              <ArrowUpRight data-icon="inline-end" aria-hidden />
             </Button>
           ) : (
-            <div className="flex flex-col gap-3">
-              <Button variant="outline" size="lg" disabled>
-                Say hello
-                <ArrowUpRight data-icon="inline-end" aria-hidden="true" />
-              </Button>
-              <Badge
-                variant="secondary"
-                className="font-normal tracking-normal normal-case"
-              >
-                A new conversation, soon.
-              </Badge>
-            </div>
+            <Button variant="outline" size="lg" disabled>
+              Say hello
+              <ArrowUpRight data-icon="inline-end" aria-hidden />
+            </Button>
           )}
-        </CardContent>
-        <Separator />
-        <CardFooter className="flex-wrap justify-between gap-4 px-0 pb-2 text-[10px] text-muted-foreground">
+        </motion.div>
+
+        {/* Links row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 flex flex-wrap gap-6"
+        >
+          {portfolio.socials.map((s) =>
+            s.href ? (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {s.label}
+                <ArrowUpRight className="size-3" aria-hidden />
+              </a>
+            ) : (
+              <span key={s.label} className="text-xs text-muted-foreground/50">
+                {s.label}
+              </span>
+            ),
+          )}
+        </motion.div>
+
+        {/* Footer */}
+        <Separator className="mt-16 mb-6" />
+        <div className="flex flex-wrap items-center justify-between gap-4 text-[10px] text-muted-foreground">
           <span>
             © {portfolio.copyrightYear} {portfolio.name.join(" ")}
-          </span>
-          <span className="hidden font-mono text-[8px] tracking-widest sm:inline">
-            DESIGNED WITH INTENTION.
           </span>
           <Button
             render={<a href="#home" />}
             nativeButton={false}
             variant="ghost"
-            size="sm"
+            size="xs"
+            className="text-[10px]"
           >
-            Back to top
-            <ArrowUp data-icon="inline-end" aria-hidden="true" />
+            Top
+            <ArrowUp className="size-3" data-icon="inline-end" aria-hidden />
           </Button>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </footer>
   );
 }

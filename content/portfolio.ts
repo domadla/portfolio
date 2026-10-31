@@ -1,9 +1,9 @@
-export type PortfolioImage = {
+type PortfolioImage = {
   src: string;
   alt: string;
 };
 
-export type Project = {
+type Project = {
   id: string;
   name: string;
   category: string;
@@ -14,15 +14,13 @@ export type Project = {
 
 // Replace sample content here. Components only handle presentation.
 export const portfolio = {
-  initials: "Dominic",
+  initials: "Dominic Madlangbayan",
   name: ["Edgar Dominic", "Madlangbayan"],
   role: "BS Information Technology with specialization in Web and Mobile Development",
   location: "Makati, Philippines",
-  availability: "Open to opportunities",
   introduction: "A curious mind. A thoughtful maker.",
   description:
     "Designer and developer exploring the space between thoughtful design and meaningful digital experiences.",
-  heroNote: "",
   about: [
     "Hey, I’m Alex — a designer and developer drawn to the space where thoughtful design meets everyday life.",
     "I’m currently a university student, learning by making and turning small observations into useful digital experiences. I care about the details, the people behind the screen, and making things feel a little more human.",
@@ -37,14 +35,6 @@ export const portfolio = {
     portrait: {
       src: "/images/SHSPic.JPG",
       alt: "Portrait of Edgar Dominic Madlangbayan",
-    },
-    landscape: {
-      src: "/images/landscape.svg",
-      alt: "Placeholder illustration of layered mountains beneath the sun",
-    },
-    workspace: {
-      src: "/images/workspace.svg",
-      alt: "Placeholder illustration of a quiet desk with a lamp and notebook",
     },
   } satisfies Record<string, PortfolioImage>,
   projects: [
@@ -82,6 +72,5 @@ export const portfolio = {
     { label: "GitHub", href: null as string | null },
     { label: "LinkedIn", href: null as string | null },
   ],
-  resumeUrl: null as string | null,
   copyrightYear: "2026",
 };

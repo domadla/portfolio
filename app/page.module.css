@@ -1,9 +1,0 @@
-.main {
-  min-width: 0;
-  padding-inline: clamp(24px, 5vw, 88px);
-}
-.content {
-  width: 100%;
-  max-width: 1500px;
-  margin-inline: auto;
-}

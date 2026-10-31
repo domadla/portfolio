@@ -1,70 +1,101 @@
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import Image from "next/image";
+import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { portfolio } from "@/content/portfolio";
 
 export function About() {
   return (
     <section
       id="about"
-      className="pt-10 md:pt-12"
+      className="relative border-b border-border px-6 py-20 md:px-10 md:py-28"
       aria-labelledby="about-heading"
     >
-      <div className="flex items-center justify-between gap-5 font-mono text-[9px] tracking-widest text-muted-foreground">
-        <span>ABOUT ME</span>
-        <ArrowUpRight className="size-4 text-primary" aria-hidden="true" />
-      </div>
-      <div className="mt-10 grid gap-8 pb-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <h2
-            id="about-heading"
-            className="max-w-sm font-serif text-4xl leading-tight tracking-tight text-balance md:text-5xl"
-          >
-            {portfolio.introduction}
-          </h2>
-          <p className="mt-6 font-serif text-base text-primary italic">
-            Always a work in progress.
-          </p>
-        </div>
-        <div className="space-y-5">
-          {portfolio.about.map((paragraph, index) => (
-            <p
-              key={paragraph}
-              className={
-                index === 0
-                  ? "text-sm leading-7 text-foreground"
-                  : "text-sm leading-7 text-muted-foreground"
-              }
+      <div className="mx-auto max-w-6xl">
+        {/* Section label */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
+        >
+          About
+        </motion.p>
+
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-20">
+          {/* Text column */}
+          <div>
+            <motion.h2
+              id="about-heading"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl leading-snug font-light tracking-tight text-balance md:text-4xl"
             >
-              {paragraph}
-            </p>
-          ))}
-          <Card
-            id="background"
-            size="sm"
-            className="mt-7 gap-3 border border-border shadow-none ring-0"
-          >
-            <CardHeader>
-              <h3 className="font-mono text-[9px] tracking-widest text-muted-foreground">
-                CURRENTLY EXPLORING
-              </h3>
-            </CardHeader>
-            <CardContent className="flex flex-wrap gap-3">
+              {portfolio.introduction}
+            </motion.h2>
+
+            <div className="mt-10 space-y-5">
+              {portfolio.about.map((paragraph, index) => (
+                <motion.p
+                  key={paragraph}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="text-sm leading-7 text-muted-foreground"
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* Interests */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-10 flex flex-wrap gap-2"
+            >
               {portfolio.interests.map((interest) => (
                 <Badge
                   key={interest}
                   variant="outline"
-                  className="rounded-full border border-border px-3 py-1.5 text-[10px] font-normal tracking-normal normal-case"
+                  className="border border-border px-3 py-1.5 text-[10px] font-normal tracking-normal normal-case"
                 >
                   {interest}
                 </Badge>
               ))}
-            </CardContent>
-          </Card>
+            </motion.div>
+          </div>
+
+          {/* Portrait */}
+          <motion.figure
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="relative aspect-[3/4] w-full overflow-hidden bg-card"
+          >
+            <Image
+              src={portfolio.images.portrait.src}
+              alt={portfolio.images.portrait.alt}
+              fill
+              sizes="(max-width: 1024px) 90vw, 40vw"
+              className="object-cover object-[center_12%] scale-130"
+            />
+            {/* Subtle overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"
+              aria-hidden
+            />
+          </motion.figure>
         </div>
       </div>
-      <Separator />
     </section>
   );
 }
