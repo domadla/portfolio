@@ -62,7 +62,7 @@ export const portfolio = {
   images: {
     portrait: {
       src: "/images/SHSPic.JPG",
-      alt: "Portrait of Edgar Dominic Madlangbayan",
+      alt: "Portrait",
     },
   } satisfies Record<string, PortfolioImage>,
   projects: [
@@ -78,16 +78,15 @@ export const portfolio = {
         "Sample project: a community platform exploring how shared interests can bring people together. Replace this with your challenge, role, process, and outcome.",
     },
   ] satisfies Project[],
-  // Null URLs render as plain text, so unfinished placeholders are never broken links.
   contact: {
-    personalEmail: null as string | null,
-    academicEmail: null as string | null,
+    personalEmail: "domadlangbayan@gmail.com",
+    academicEmail: "eamadlangbayan@fit.edu.ph",
     address: "Makati, Philippines" as string | null,
   },
   socials: [
-    { label: "LinkedIn", href: null as string | null },
-    { label: "Facebook", href: null as string | null },
-    { label: "GitHub", href: null as string | null },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/edgar-dominic-madlangbayan-3930b1381/" },
+    { label: "Facebook", href: "https://www.facebook.com/domadla" },
+    { label: "GitHub", href: "https://github.com/domadla" },
   ],
   copyrightYear: "2026",
 };
