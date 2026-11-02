@@ -22,37 +22,56 @@ type Project = {
   details: string;
   media: ProjectMedia[];
   siteUrl: string | null;
+  showWebsite: boolean;
 };
 
-// Reuse these sample assets until each project has its own screenshots and demo.
-const placeholderMedia: ProjectMedia[] = [
+const webMedia: ProjectMedia[] = [
   {
     type: "image",
-    src: "/images/project-placeholder-01.svg",
-    alt: "Project image placeholder 1: Your next great idea, with a blue sphere",
+    src: "/images/Iskkolar-Web.png",
+    alt: "ISKKOLAR web application screenshot",
   },
   {
     type: "image",
-    src: "/images/project-placeholder-02.svg",
-    alt: "Project image placeholder 2: Made with intention, with layered squares",
+    src: "/images/Admin-Web.png",
+    alt: "ISKKOLAR web admin screenshot",
   },
   {
     type: "video",
-    src: "/videos/placeholder-demo.mp4",
-    alt: "Sample video placeholder showing flowers moving in the breeze",
-    poster: "/images/project-placeholder-02.svg",
+    src: "/videos/Integra_WebDemo.mp4",
+    alt: "ISKKOLAR web application demonstration",
+    poster: "/images/Iskkolar-Web.png",
+  },
+];
+
+const mobileMedia: ProjectMedia[] = [
+  {
+    type: "image",
+    src: "/images/Iskkolar-Mobile.png",
+    alt: "ISKKOLAR mobile application screenshot",
+  },
+  {
+    type: "image",
+    src: "/images/Scholar-Mobile.png",
+    alt: "ISKKOLAR mobile scholar screenshot",
+  },
+  {
+    type: "video",
+    src: "/videos/Integra_MobileDemo.mp4",
+    alt: "ISKKOLAR mobile application demonstration",
+    poster: "/images/Iskkolar-Mobile.png",
   },
 ];
 
 // Replace sample content here. Components only handle presentation.
 export const portfolio = {
-  initials: "Dominic Madlangbayan",
+  initials: "Edgar Dominic Madlangbayan",
   name: ["Edgar Dominic", "Madlangbayan"],
   role: "BS Information Technology with specialization in Web and Mobile Development",
   location: "Makati, Philippines",
   introduction: "Keep creating. Keep learning.",
   description:
-    "Designer and developer exploring the space between thoughtful design and meaningful digital experiences.",
+    "Always looking to learn and improve.",
   about: [
     "I'm Dominic a 4th-year Bachelor of Science in Information Technology student specializing in Web and Mobile Application Development.",
     "I learn through starting and finishing projects. Whether its working with a team or alone, I make sure that I deliver my work with the best I can.",
@@ -68,14 +87,27 @@ export const portfolio = {
   projects: [
     {
       id: "project-one",
-      media: placeholderMedia,
-      siteUrl: null as string | null,
-      name: "ISKKOLAR",
-      category: "Capstone Project",
+      media: webMedia,
+      siteUrl: "https://www.kkfi-iskkolar.org",
+      showWebsite: true,
+      name: "ISKKOLAR Web",
+      category: "Capstone Project | Backend Developer",
       year: "2026",
-      description: "Scholarship Management for an NGO | Web & Mobile Application",
+      description: "Scholarship Management for an NGO | Web Application",
       details:
-        "Sample project: a community platform exploring how shared interests can bring people together. Replace this with your challenge, role, process, and outcome.",
+        "ISKKOLAR is a web and mobile-based scholarship application and scholar management system developed for Kapatiran-Kaunlaran Foundation Inc. (KKFI). It supports digital scholarship applications, scholar records management, document compliance monitoring, and financial assistance tracking. The system uses Optical Character Recognition (OCR) and Natural Language Processing (NLP) to extract, process, and validate text from submitted scholarship documents, helping KKFI personnel manage operations efficiently.",
+    },
+    {
+      id: "project-two",
+      media: mobileMedia,
+      siteUrl: null as string | null,
+      showWebsite: false,
+      name: "ISKKOLAR Mobile",
+      category: "Capstone Project | Backend Developer",
+      year: "2026",
+      description: "Scholarship Management for an NGO | Mobile Application",
+      details:
+        "ISKKOLAR Mobile is an app to support the accessibility of its web application. Allowing scholars and applicants to access the system features",
     },
   ] satisfies Project[],
   contact: {
@@ -84,7 +116,10 @@ export const portfolio = {
     address: "Makati, Philippines" as string | null,
   },
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/edgar-dominic-madlangbayan-3930b1381/" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/domadla/",
+    },
     { label: "Facebook", href: "https://www.facebook.com/domadla" },
     { label: "GitHub", href: "https://github.com/domadla" },
   ],

@@ -3,6 +3,7 @@ import { Hero } from "@/components/portfolio/hero";
 import { About } from "@/components/portfolio/about";
 import { Skills } from "@/components/portfolio/skills";
 import { SelectedWork } from "@/components/portfolio/selected-work";
+import { Certifications } from "@/components/portfolio/certifications";
 import { Contact } from "@/components/portfolio/contact";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         <Skills />
         <SelectedWork />
+        <Certifications />
         <Contact />
       </main>
     </>

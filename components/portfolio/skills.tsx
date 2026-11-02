@@ -30,7 +30,7 @@ export function Skills() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-3xl font-light tracking-tight md:mb-16 md:text-4xl"
         >
-          Tools I build with<span className="text-primary">.</span>
+          Tools and Technologies I use<span className="text-primary">:</span>
         </motion.h2>
 
         <div className="border-t border-border">

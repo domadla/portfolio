@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
@@ -21,7 +21,7 @@ export function SelectedWork() {
           transition={{ duration: 0.5 }}
           className="mb-4 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
         >
-          Selected work
+          Projects
         </motion.p>
         <motion.h2
           id="work-heading"
@@ -31,7 +31,7 @@ export function SelectedWork() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-3xl font-light tracking-tight md:text-4xl"
         >
-          Things I&rsquo;ve made<span className="text-primary">.</span>
+          Works and Contributions <span className="text-primary">:</span>
         </motion.h2>
         <div className="border-t border-border">
           {portfolio.projects.map((project, index) => (
@@ -73,26 +73,29 @@ export function SelectedWork() {
                 <p className="mt-5 text-sm leading-7 text-muted-foreground">
                   {project.details}
                 </p>
-                <div className="mt-8 border-t border-border pt-5">
-                  <p className="mb-3 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-                    Project website
-                  </p>
-                  {project.siteUrl ? (
-                    <a
-                      href={project.siteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Visit ${project.name} website (opens in a new tab)`}
-                      className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-foreground"
-                    >
-                      Visit site <ArrowUpRight className="size-4" aria-hidden />
-                    </a>
-                  ) : (
-                    <p className="text-sm text-muted-foreground/70">
-                      Link coming soon
+                {project.showWebsite && (
+                  <div className="mt-8 border-t border-border pt-5">
+                    <p className="mb-3 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                      Project website
                     </p>
-                  )}
-                </div>
+                    {project.siteUrl ? (
+                      <a
+                        href={project.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${project.name} website (opens in a new tab)`}
+                        className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-foreground"
+                      >
+                        Visit site{" "}
+                        <ArrowUpRight className="size-4" aria-hidden />
+                      </a>
+                    ) : (
+                      <p className="text-sm text-muted-foreground/70">
+                        Link coming soon
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.article>
           ))}

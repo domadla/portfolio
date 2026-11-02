@@ -10,7 +10,8 @@ import { portfolio } from "@/content/portfolio";
 const links = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
+  { label: "Projects", href: "#work" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -63,7 +64,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-14 z-40 flex flex-col gap-1 border-b border-border bg-background/95 p-6 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 top-14 z-40 flex flex-col gap-1 overflow-y-auto border-b border-border bg-background/95 p-6 backdrop-blur-xl md:hidden"
           >
             {links.map((link, i) => (
               <motion.a
