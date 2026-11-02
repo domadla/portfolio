@@ -18,18 +18,18 @@ export const portfolio = {
   name: ["Edgar Dominic", "Madlangbayan"],
   role: "BS Information Technology with specialization in Web and Mobile Development",
   location: "Makati, Philippines",
-  introduction: "A curious mind. A thoughtful maker.",
+  introduction: "Keep creating. Keep learning.",
   description:
     "Designer and developer exploring the space between thoughtful design and meaningful digital experiences.",
   about: [
-    "Hey, I’m Alex — a designer and developer drawn to the space where thoughtful design meets everyday life.",
-    "I’m currently a university student, learning by making and turning small observations into useful digital experiences. I care about the details, the people behind the screen, and making things feel a little more human.",
-    "Away from my desk, you’ll find me collecting little moments, exploring unfamiliar streets, or chasing the next good cup of coffee.",
+    "I'm Dominic a 4th-year Bachelor of Science in Information Technology student specializing in Web and Mobile Application Development.",
+    "I learn through starting and finishing projects. Whether its working with a team or alone, I make sure that I deliver my work with the best I can.",
+    "FEU Institute of Technology | Bachelor of Science in Information Technology, Specialization in Web and Mobile Applications | Expected July 2027",
   ],
   interests: [
-    "Thoughtful interfaces",
-    "Creative development",
-    "Everyday observations",
+    "Analytical",
+    "Creative",
+    "Dependable",
   ],
   images: {
     portrait: {

@@ -30,7 +30,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 text-[11px] tracking-[0.25em] text-primary uppercase"
         >
-          {portfolio.location}
+          {portfolio.role}
         </motion.p>
 
         <motion.h1

@@ -33,12 +33,12 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5 }}
-              className="text-3xl leading-snug font-light tracking-tight text-balance md:text-4xl"
+              className="text-4xl leading-tight font-light tracking-tight text-balance md:text-5xl"
             >
               {portfolio.introduction}
             </motion.h2>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-10 space-y-7 md:mt-12 md:space-y-8">
               {portfolio.about.map((paragraph, index) => (
                 <motion.p
                   key={paragraph}
@@ -46,7 +46,7 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-sm leading-7 text-muted-foreground"
+                  className="text-base leading-8 text-muted-foreground md:text-lg md:leading-9"
                 >
                   {paragraph}
                 </motion.p>
@@ -59,13 +59,13 @@ export function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-10 flex flex-wrap gap-2"
+              className="mt-10 flex flex-wrap gap-3 md:mt-12"
             >
               {portfolio.interests.map((interest) => (
                 <Badge
                   key={interest}
                   variant="outline"
-                  className="border border-border px-3 py-1.5 text-[10px] font-normal tracking-normal normal-case"
+                  className="border border-border px-4 py-2 text-xs font-normal tracking-normal normal-case"
                 >
                   {interest}
                 </Badge>
@@ -86,7 +86,7 @@ export function About() {
               alt={portfolio.images.portrait.alt}
               fill
               sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover object-[center_12%] scale-130"
+              className="origin-top scale-130 object-cover object-top"
             />
             {/* Subtle overlay */}
             <div
