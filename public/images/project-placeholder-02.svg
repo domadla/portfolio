@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#101923"/>
+      <stop offset="1" stop-color="#203e49"/>
+    </linearGradient>
+    <linearGradient id="panel" x2="1" y2="1">
+      <stop stop-color="#98c7d0"/>
+      <stop offset="1" stop-color="#446782"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1280v720H0z"/>
+  <g fill="none" stroke="#a4d6db" stroke-opacity=".15">
+    <path d="M80 120h1120v480H80zM80 240h1120M80 480h1120M640 120v480"/>
+  </g>
+  <g transform="translate(865 350) rotate(-25)">
+    <rect x="-145" y="-145" width="290" height="290" rx="36" fill="#203c4b" stroke="#91bcc8" stroke-opacity=".5"/>
+    <rect x="-105" y="-105" width="210" height="210" rx="28" fill="url(#panel)"/>
+    <rect x="-60" y="-60" width="120" height="120" rx="20" fill="#142b37"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="100" fill="#a1cdd5" font-size="16" letter-spacing="5">A CLOSER LOOK</text>
+    <text x="80" y="343" fill="#e6e9ef" font-size="64" font-weight="300">Made with</text>
+    <text x="80" y="417" fill="#e6e9ef" font-size="64" font-weight="300">intention.</text>
+    <text x="80" y="470" fill="#a0b8c3" font-size="20">Image placeholder / replace with project media</text>
+    <text x="80" y="650" fill="#a1cdd5" font-size="16" letter-spacing="4">PREVIEW 02</text>
+    <text x="1200" y="650" fill="#a0b8c3" font-size="16" text-anchor="end">16:9</text>
+  </g>
+</svg>

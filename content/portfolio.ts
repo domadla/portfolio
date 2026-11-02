@@ -3,6 +3,16 @@ type PortfolioImage = {
   alt: string;
 };
 
+export type ProjectMedia =
+  | { type: "image"; src: string; alt: string }
+  | {
+    type: "video";
+    src: string;
+    alt: string;
+    poster?: string;
+    captions?: string;
+  };
+
 type Project = {
   id: string;
   name: string;
@@ -10,7 +20,29 @@ type Project = {
   year: string;
   description: string;
   details: string;
+  media: ProjectMedia[];
+  siteUrl: string | null;
 };
+
+// Reuse these sample assets until each project has its own screenshots and demo.
+const placeholderMedia: ProjectMedia[] = [
+  {
+    type: "image",
+    src: "/images/project-placeholder-01.svg",
+    alt: "Project image placeholder 1: Your next great idea, with a blue sphere",
+  },
+  {
+    type: "image",
+    src: "/images/project-placeholder-02.svg",
+    alt: "Project image placeholder 2: Made with intention, with layered squares",
+  },
+  {
+    type: "video",
+    src: "/videos/placeholder-demo.mp4",
+    alt: "Sample video placeholder showing flowers moving in the breeze",
+    poster: "/images/project-placeholder-02.svg",
+  },
+];
 
 // Replace sample content here. Components only handle presentation.
 export const portfolio = {
@@ -26,11 +58,7 @@ export const portfolio = {
     "I learn through starting and finishing projects. Whether its working with a team or alone, I make sure that I deliver my work with the best I can.",
     "FEU Institute of Technology | Bachelor of Science in Information Technology, Specialization in Web and Mobile Applications | Expected July 2027",
   ],
-  interests: [
-    "Analytical",
-    "Creative",
-    "Dependable",
-  ],
+  interests: ["Analytical", "Creative", "Dependable"],
   images: {
     portrait: {
       src: "/images/SHSPic.JPG",
@@ -40,37 +68,26 @@ export const portfolio = {
   projects: [
     {
       id: "project-one",
-      name: "Common Ground",
-      category: "Product design",
+      media: placeholderMedia,
+      siteUrl: null as string | null,
+      name: "ISKKOLAR",
+      category: "Capstone Project",
       year: "2026",
-      description: "Making room for better connections.",
+      description: "Scholarship Management for an NGO | Web & Mobile Application",
       details:
         "Sample project: a community platform exploring how shared interests can bring people together. Replace this with your challenge, role, process, and outcome.",
     },
-    {
-      id: "project-two",
-      name: "Forma",
-      category: "Design & development",
-      year: "2026",
-      description: "A simpler home for everyday ideas.",
-      details:
-        "Sample project: a minimal workspace for capturing ideas. Replace this with the problem you solved, your contribution, the technology used, and what you learned.",
-    },
-    {
-      id: "project-three",
-      name: "Little Interactions",
-      category: "Creative experiments",
-      year: "2025",
-      description: "Small details. A little more delight.",
-      details:
-        "Sample project: a collection of interface experiments. Add the purpose of each experiment, your approach, and a link to a working demo when available.",
-    },
   ] satisfies Project[],
   // Null URLs render as plain text, so unfinished placeholders are never broken links.
-  email: null as string | null,
+  contact: {
+    personalEmail: null as string | null,
+    academicEmail: null as string | null,
+    address: "Makati, Philippines" as string | null,
+  },
   socials: [
-    { label: "GitHub", href: null as string | null },
     { label: "LinkedIn", href: null as string | null },
+    { label: "Facebook", href: null as string | null },
+    { label: "GitHub", href: null as string | null },
   ],
   copyrightYear: "2026",
 };

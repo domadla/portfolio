@@ -1,14 +1,12 @@
-"use client";
+﻿"use client";
 
-import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
+import { ProjectCarousel } from "@/components/portfolio/project-carousel";
 import { portfolio } from "@/content/portfolio";
 
 export function SelectedWork() {
-  const [expanded, setExpanded] = useState<string | null>(null);
-
   return (
     <section
       id="work"
@@ -16,7 +14,6 @@ export function SelectedWork() {
       aria-labelledby="work-heading"
     >
       <div className="mx-auto max-w-6xl">
-        {/* Section label */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -26,7 +23,6 @@ export function SelectedWork() {
         >
           Selected work
         </motion.p>
-
         <motion.h2
           id="work-heading"
           initial={{ opacity: 0, y: 12 }}
@@ -37,85 +33,68 @@ export function SelectedWork() {
         >
           Things I&rsquo;ve made<span className="text-primary">.</span>
         </motion.h2>
-
-        {/* Project list */}
         <div className="border-t border-border">
           {portfolio.projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.id}
               id={project.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              aria-labelledby={`${project.id}-heading`}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group border-b border-border"
+              transition={{ duration: 0.4 }}
+              className="grid items-start gap-8 border-b border-border py-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12 lg:py-12"
             >
-              <button
-                onClick={() =>
-                  setExpanded(expanded === project.id ? null : project.id)
-                }
-                className="flex w-full cursor-pointer items-center gap-4 py-7 text-left transition-colors sm:gap-8"
-                aria-expanded={expanded === project.id}
-                aria-controls={`details-${project.id}`}
-              >
-                {/* Index */}
-                <span className="w-8 shrink-0 font-mono text-[10px] text-muted-foreground">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {/* Name + description */}
-                <span className="flex-1">
-                  <span className="block text-lg tracking-tight transition-colors group-hover:text-primary sm:text-xl">
-                    {project.name}
+              <ProjectCarousel media={project.media} name={project.name} />
+              <div className="min-w-0 lg:py-2">
+                <div className="mb-5 flex flex-wrap items-center gap-4">
+                  <span className="font-mono text-[10px] text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-1 block text-xs text-muted-foreground">
-                    {project.description}
-                  </span>
-                </span>
-
-                {/* Category + year */}
-                <Badge
-                  variant="secondary"
-                  className="hidden text-[9px] font-normal tracking-normal normal-case md:inline-flex"
-                >
-                  {project.category}
-                </Badge>
-                <span className="hidden font-mono text-[10px] text-muted-foreground sm:inline">
-                  {project.year}
-                </span>
-
-                {/* Arrow */}
-                <ArrowUpRight
-                  className={`size-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
-                    expanded === project.id ? "rotate-90" : ""
-                  }`}
-                  aria-hidden
-                />
-              </button>
-
-              {/* Expandable detail */}
-              <AnimatePresence>
-                {expanded === project.id && (
-                  <motion.div
-                    id={`details-${project.id}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                  <Badge
+                    variant="secondary"
+                    className="text-[10px] font-normal tracking-normal normal-case"
                   >
-                    <div className="pb-8 pl-12 sm:pl-16">
-                      <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-                        {project.details}
-                      </p>
-                      <p className="mt-3 text-[10px] tracking-wider text-primary/70 uppercase">
-                        {project.category} · {project.year}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                    {project.category}
+                  </Badge>
+                  <span className="font-mono text-[10px] text-muted-foreground">
+                    {project.year}
+                  </span>
+                </div>
+                <h3
+                  id={`${project.id}-heading`}
+                  className="text-2xl font-light tracking-tight md:text-3xl"
+                >
+                  {project.name}
+                </h3>
+                <p className="mt-3 text-base text-foreground/85">
+                  {project.description}
+                </p>
+                <p className="mt-5 text-sm leading-7 text-muted-foreground">
+                  {project.details}
+                </p>
+                <div className="mt-8 border-t border-border pt-5">
+                  <p className="mb-3 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                    Project website
+                  </p>
+                  {project.siteUrl ? (
+                    <a
+                      href={project.siteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${project.name} website (opens in a new tab)`}
+                      className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-foreground"
+                    >
+                      Visit site <ArrowUpRight className="size-4" aria-hidden />
+                    </a>
+                  ) : (
+                    <p className="text-sm text-muted-foreground/70">
+                      Link coming soon
+                    </p>
+                  )}
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>

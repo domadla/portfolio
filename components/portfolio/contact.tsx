@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ArrowUpRight, ArrowUp } from "lucide-react";
 import { motion } from "motion/react";
@@ -7,10 +7,44 @@ import { Separator } from "@/components/ui/separator";
 import { portfolio } from "@/content/portfolio";
 
 export function Contact() {
+  const contacts = [
+    {
+      label: "Personal Email",
+      value: portfolio.contact.personalEmail,
+      href: portfolio.contact.personalEmail
+        ? `mailto:${portfolio.contact.personalEmail}`
+        : null,
+      external: false,
+    },
+    {
+      label: "Academic Email",
+      value: portfolio.contact.academicEmail,
+      href: portfolio.contact.academicEmail
+        ? `mailto:${portfolio.contact.academicEmail}`
+        : null,
+      external: false,
+    },
+    {
+      label: "Address",
+      value: portfolio.contact.address,
+      href: null,
+      external: false,
+    },
+    ...portfolio.socials.map((social) => ({
+      label: social.label,
+      value: social.href,
+      href: social.href,
+      external: true,
+    })),
+  ];
+
   return (
-    <footer id="contact" className="relative px-6 py-20 md:px-10 md:py-28">
+    <footer
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="relative px-6 py-20 md:px-10 md:py-28"
+    >
       <div className="mx-auto max-w-6xl">
-        {/* Section label */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -20,8 +54,8 @@ export function Contact() {
         >
           Contact
         </motion.p>
-
         <motion.h2
+          id="contact-heading"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -30,7 +64,6 @@ export function Contact() {
         >
           Let&rsquo;s talk<span className="text-primary">.</span>
         </motion.h2>
-
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -40,64 +73,56 @@ export function Contact() {
         >
           Have an idea, an opportunity, or a good story?
         </motion.p>
-
-        <motion.div
+        <motion.dl
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="mt-10"
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="mt-12 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {portfolio.email ? (
-            <Button
-              render={<a href={`mailto:${portfolio.email}`} />}
-              nativeButton={false}
-              size="lg"
+          {contacts.map((contact) => (
+            <div
+              key={contact.label}
+              className="min-w-0 border-t border-border py-7"
             >
-              Say hello
-              <ArrowUpRight data-icon="inline-end" aria-hidden />
-            </Button>
-          ) : (
-            <Button variant="outline" size="lg" disabled>
-              Say hello
-              <ArrowUpRight data-icon="inline-end" aria-hidden />
-            </Button>
-          )}
-        </motion.div>
-
-        {/* Links row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 flex flex-wrap gap-6"
-        >
-          {portfolio.socials.map((s) =>
-            s.href ? (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {s.label}
-                <ArrowUpRight className="size-3" aria-hidden />
-              </a>
-            ) : (
-              <span key={s.label} className="text-xs text-muted-foreground/50">
-                {s.label}
-              </span>
-            ),
-          )}
-        </motion.div>
-
-        {/* Footer */}
-        <Separator className="mt-16 mb-6" />
+              <dt className="mb-3 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                {contact.label}
+              </dt>
+              <dd className="text-sm leading-7">
+                {contact.href ? (
+                  <a
+                    href={contact.href}
+                    target={contact.external ? "_blank" : undefined}
+                    rel={contact.external ? "noopener noreferrer" : undefined}
+                    className="inline-flex max-w-full items-start gap-2 text-foreground transition-colors hover:text-primary"
+                  >
+                    <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+                      {contact.value}
+                    </span>
+                    <ArrowUpRight
+                      className="mt-1.5 size-4 shrink-0 text-primary"
+                      aria-hidden
+                    />
+                  </a>
+                ) : (
+                  <span
+                    className={
+                      contact.value
+                        ? "text-foreground"
+                        : "text-muted-foreground/70"
+                    }
+                  >
+                    {contact.value ?? "Coming soon"}
+                  </span>
+                )}
+              </dd>
+            </div>
+          ))}
+        </motion.dl>
+        <Separator className="mt-12 mb-6" />
         <div className="flex flex-wrap items-center justify-between gap-4 text-[10px] text-muted-foreground">
           <span>
-            © {portfolio.copyrightYear} {portfolio.name.join(" ")}
+            &copy; {portfolio.copyrightYear} {portfolio.name.join(" ")}
           </span>
           <Button
             render={<a href="#home" />}
@@ -106,7 +131,7 @@ export function Contact() {
             size="xs"
             className="text-[10px]"
           >
-            Top
+            Top{" "}
             <ArrowUp className="size-3" data-icon="inline-end" aria-hidden />
           </Button>
         </div>
