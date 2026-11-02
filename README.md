@@ -15,6 +15,7 @@ Open http://localhost:3000. Before committing, run `npm run format:check`, `npm 
 
 - **Identity and copy:** edit `content/portfolio.ts`. Metadata uses the same name, role, and description.
 - **Portrait:** add an image in `public/images/`, then update `images.portrait.src` and its alt text. Adjust the crop in `components/portfolio/about.tsx`.
+- **Skills:** edit the five categories in `content/skills.ts`. Logos are stored locally in `public/icons/skills/`, from [Devicon](https://github.com/devicons/devicon) and [Simple Icons](https://github.com/simple-icons/simple-icons), with their license files included. RESTful API Development uses a generic network icon. Monochrome logos are displayed in white for contrast against the dark background.
 - **Projects:** edit the `projects` array. Keep IDs unique and stable. Each project has a media carousel, description, and `siteUrl` for its website. An empty media array shows a preview placeholder; a null site URL shows “Link coming soon”.
 - **Contact:** set `contact.personalEmail`, `contact.academicEmail`, `contact.address`, and the LinkedIn, Facebook, and GitHub `socials` URLs in `content/portfolio.ts`. Missing values show “Coming soon”.
 - **Colors:** edit the semantic tokens in `app/globals.css`. Keep text and surface pairs readable. Fonts use system stacks without external downloads.

@@ -17,7 +17,7 @@ export function About() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="mb-16 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
         >
@@ -31,7 +31,7 @@ export function About() {
               id="about-heading"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: false, margin: "-80px" }}
               transition={{ duration: 0.5 }}
               className="text-4xl leading-tight font-light tracking-tight text-balance md:text-5xl"
             >
@@ -44,7 +44,7 @@ export function About() {
                   key={paragraph}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="text-base leading-8 text-muted-foreground md:text-lg md:leading-9"
                 >
@@ -57,7 +57,7 @@ export function About() {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: false, margin: "-60px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-10 flex flex-wrap gap-3 md:mt-12"
             >
@@ -77,7 +77,7 @@ export function About() {
           <motion.figure
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: false, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             className="relative aspect-[3/4] w-full overflow-hidden bg-card"
           >

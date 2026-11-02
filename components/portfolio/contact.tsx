@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ArrowUpRight, ArrowUp } from "lucide-react";
 import { motion } from "motion/react";
@@ -48,7 +48,7 @@ export function Contact() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="mb-4 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
         >
@@ -58,7 +58,7 @@ export function Contact() {
           id="contact-heading"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="text-4xl font-light tracking-tight md:text-5xl lg:text-6xl"
         >
@@ -67,7 +67,7 @@ export function Contact() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground"
         >
@@ -76,7 +76,7 @@ export function Contact() {
         <motion.dl
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.4, delay: 0.2 }}
           className="mt-12 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3"
         >

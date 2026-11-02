@@ -1,6 +1,7 @@
 import { Nav } from "@/components/portfolio/nav";
 import { Hero } from "@/components/portfolio/hero";
 import { About } from "@/components/portfolio/about";
+import { Skills } from "@/components/portfolio/skills";
 import { SelectedWork } from "@/components/portfolio/selected-work";
 import { Contact } from "@/components/portfolio/contact";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <About />
+        <Skills />
         <SelectedWork />
         <Contact />
       </main>

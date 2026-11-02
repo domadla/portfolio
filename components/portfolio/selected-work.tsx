@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
@@ -17,7 +17,7 @@ export function SelectedWork() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="mb-4 text-[10px] tracking-[0.3em] text-muted-foreground uppercase"
         >
@@ -27,7 +27,7 @@ export function SelectedWork() {
           id="work-heading"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="mb-16 text-3xl font-light tracking-tight md:text-4xl"
         >
@@ -41,7 +41,7 @@ export function SelectedWork() {
               aria-labelledby={`${project.id}-heading`}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: false, margin: "-40px" }}
               transition={{ duration: 0.4 }}
               className="grid items-start gap-8 border-b border-border py-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12 lg:py-12"
             >
